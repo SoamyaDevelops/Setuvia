@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import CustomerShell from './pages/CustomerShell';
 import AgentShell from './pages/AgentShell';
 import AdminShell from './pages/AdminShell';
+import LegalPage from './pages/LegalPage';
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
@@ -15,6 +16,10 @@ function App() {
         
         {/* Authentication page */}
         <Route path="/login" element={<Login />} />
+
+        {/* Legal & Compliance Pages */}
+        <Route path="/privacy" element={<LegalPage initialTab="privacy" />} />
+        <Route path="/terms" element={<LegalPage initialTab="terms" />} />
         
         {/* Customer Portal requires authentication */}
         <Route

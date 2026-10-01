@@ -6,6 +6,7 @@ import { PulseSphere } from '../components/effects/PulseSphere';
 import { CursorBlob } from '../components/effects/CursorBlob';
 import { User, Terminal, Shield, ArrowLeft, ArrowRight, Lock, Sparkles, Orbit, Loader2 } from 'lucide-react';
 import SetuviaLogo from '../components/SetuviaLogo';
+import LegalModal from '../components/LegalModal';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -22,6 +23,13 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
+  const [legalOpen, setLegalOpen] = useState(false);
+  const [legalTab, setLegalTab] = useState('privacy');
+
+  const openLegalModal = (tab) => {
+    setLegalTab(tab);
+    setLegalOpen(true);
+  };
 
   useEffect(() => {
     if (queryRole) {
@@ -450,9 +458,35 @@ export default function Login() {
             </button>
           </form>
 
+          {/* Privacy Policy & Terms of Service Buttons */}
+          <div className="mt-5 pt-3.5 border-t border-border/40 flex items-center justify-center gap-3 text-[11px] font-mono text-muted-foreground">
+            <button
+              type="button"
+              onClick={() => openLegalModal('privacy')}
+              className="hover:text-foreground transition-colors underline-offset-4 hover:underline cursor-pointer"
+            >
+              Privacy Policy
+            </button>
+            <span className="opacity-40">•</span>
+            <button
+              type="button"
+              onClick={() => openLegalModal('terms')}
+              className="hover:text-foreground transition-colors underline-offset-4 hover:underline cursor-pointer"
+            >
+              Terms of Service
+            </button>
+          </div>
+
         </div>
 
       </div>
+
+      {/* Interactive Legal Modal */}
+      <LegalModal
+        isOpen={legalOpen}
+        onClose={() => setLegalOpen(false)}
+        initialTab={legalTab}
+      />
 
     </div>
   );

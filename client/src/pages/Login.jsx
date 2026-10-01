@@ -90,13 +90,63 @@ export default function Login() {
 
   // Official Google OAuth Trigger (Seamless 1-Click with Google Identity Services)
   const handleOfficialGoogleSignIn = async () => {
+    const configuredClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID || '971101162605-rgbfed1cjs6sbutshe106n28ctjvh6op.apps.googleusercontent.com';
     setGoogleLoading(true);
-    
-    // For the demo, we directly use the simulated login (fallbackAuth)
-    // to prevent the "invalid_client / no registered origin" error popup.
-    setTimeout(() => {
-      fallbackAuth();
-    }, 800); // Small delay for realistic feeling
+
+    // If Google Identity Services library is loaded, launch official Google popup
+    if (configuredClientId && window.google?.accounts?.oauth2) {
+      try {
+        const client = window.google.accounts.oauth2.initTokenClient({
+          client_id: configuredClientId,
+          scope: 'email profile openid',
+          callback: async (tokenResponse) => {
+            if (tokenResponse.error) {
+              console.warn('[Setuvia Google Auth] Token error:', tokenResponse.error);
+              setGoogleLoading(false);
+              return;
+            }
+
+            try {
+              const res = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+                headers: { Authorization: `Bearer ${tokenResponse.access_token}` }
+              });
+              const profile = await res.json();
+
+              await supabase.auth.signInWithOAuth({
+                provider: 'google',
+                userProfile: {
+                  name: profile.name || profile.given_name || 'Google User',
+                  email: profile.email,
+                  avatar: profile.picture,
+                },
+                role: role
+              });
+
+              setGoogleLoading(false);
+              navigate(getTargetDestination());
+            } catch (fetchErr) {
+              console.error('Failed to retrieve Google profile:', fetchErr);
+              setGoogleLoading(false);
+            }
+          },
+          error_callback: (err) => {
+            console.error('[Setuvia Google Auth] GIS origin or popup error:', err);
+            // Stop loading so the user can see the error on the Google popup
+            setGoogleLoading(false);
+          }
+        });
+
+        client.requestAccessToken();
+        return;
+      } catch (err) {
+        console.error('Google Auth init exception:', err);
+        setGoogleLoading(false);
+        return;
+      }
+    }
+
+    alert("Google Identity Services failed to load. Please check your connection.");
+    setGoogleLoading(false);
   };
 
   const handleSubmit = async (e) => {

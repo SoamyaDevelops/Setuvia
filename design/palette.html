@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Setuvia palette</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="fonts.css"><link rel="stylesheet" href="tokens.css">
+<style>
+ body{padding:40px;max-width:1040px;margin:auto}
+ .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin:12px 0 32px}
+ .sw{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
+ .sw div{height:64px}.sw p{margin:0;padding:8px 10px;font-size:12px}.sw b{display:block;font-size:13px}
+ .card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:20px;margin:12px 0}
+ .tag{display:inline-block;font-size:12px;padding:2px 8px;border-radius:6px;margin-right:6px}
+ button{font-family:var(--font-sans);font-size:14px;padding:8px 14px;border-radius:6px;border:1px solid var(--line-strong);background:#fff;color:var(--ink);margin-right:8px}
+ button.p{background:var(--accent);color:#fff;border-color:var(--accent)}
+</style></head><body>
+<h1 style="font-size:44px;margin:0 0 4px">Setuvia - Paper &amp; Ink</h1>
+<p style="color:var(--ink-muted)">The customer changes channels. The context shouldn't.</p>
+
+<h2>Surfaces &amp; text</h2><div class="grid" id="a"></div>
+<h2>Brand &amp; semantic</h2><div class="grid" id="b"></div>
+<h2>Chart palette</h2><div class="grid" id="c"></div>
+
+<h2>Type</h2>
+<div class="card">
+ <h2 style="font-size:32px;margin:0">Hospital billing discrepancy</h2>
+ <p>Public Sans body text. Room rent is billed for 3 days while the stay indicates 2 days. Please verify the dates.</p>
+ <p class="mono">CASE-48291 &nbsp; Bill #83921 &nbsp; <span class="money">&#8377;42,000.00</span> &nbsp; 12 Sep 2026, 14:30</p>
+ <p>&#2325;&#2350;&#2352;&#2375; &#2325;&#2366; &#2358;&#2369;&#2354;&#2381;&#2325; 3 &#2342;&#2367;&#2344;&#2379;&#2306; &#2325;&#2375; &#2354;&#2367;&#2319; &#2354;&#2327;&#2366;&#2351;&#2366; &#2327;&#2351;&#2366; &#2342;&#2367;&#2326;&#2366;&#2312; &#2342;&#2375;&#2340;&#2366; &#2361;&#2376;&#2404; (Devanagari check &#8377;)</p>
+</div>
+
+<h2>Components</h2>
+<div class="card">
+ <button class="p">Get this resolved</button><button>Explain this</button><button>Edit draft</button>
+ <p>
+ <span class="tag" style="background:var(--info-soft);color:var(--info)">Observed</span>
+ <span class="tag" style="background:var(--warning-soft);color:var(--warning)">Inferred</span>
+ <span class="tag" style="background:var(--accent-soft);color:var(--accent)">Recommended</span>
+ <span class="tag" style="background:var(--danger-soft);color:var(--danger)">High evidence</span>
+ <span class="tag" style="background:var(--warning-soft);color:var(--warning)">Medium evidence</span>
+ <span class="tag" style="background:var(--surface-alt);color:var(--ink-muted)">AI-generated &middot; review before sending</span>
+ </p>
+</div>
+<script>
+const a=[["paper","--paper"],["surface","--surface"],["surface-alt","--surface-alt"],["line","--line"],["ink","--ink"],["ink-muted","--ink-muted"]];
+const b=[["accent","--accent"],["accent-soft","--accent-soft"],["clay","--clay"],["success","--success"],["warning","--warning"],["danger","--danger"],["info","--info"],["ch-whatsapp","--ch-whatsapp"],["ch-email","--ch-email"]];
+const c=[1,2,3,4,5,6].map(i=>["chart-"+i,"--chart-"+i]);
+const draw=(id,l)=>document.getElementById(id).innerHTML=l.map(([n,v])=>{const hex=getComputedStyle(document.documentElement).getPropertyValue(v).trim();return `<div class="sw"><div style="background:${hex}"></div><p><b>${n}</b>${hex}</p></div>`}).join("");
+draw("a",a);draw("b",b);draw("c",c);
+</script></body></html>

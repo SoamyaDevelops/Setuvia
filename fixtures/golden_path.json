@@ -1,0 +1,111 @@
+{
+  "_note": "Golden path for mock/cached AI modes and the 5-minute demo. Synthetic.",
+  "customer": {
+    "id": "CUST-1042",
+    "name": "Demo Customer",
+    "accountId": "ACC-1042",
+    "since": "2023-01-15",
+    "preferredLanguage": "mr",
+    "phone": "+91-90000-01042",
+    "email": "demo.customer@example.com"
+  },
+  "case": {
+    "id": "CASE-48291",
+    "issue": "Hospital billing discrepancy",
+    "priority": "medium",
+    "status": "AWAITING_REVIEW",
+    "channel": "whatsapp",
+    "ownerTeam": "Billing Support",
+    "slaHours": 72
+  },
+  "intent": {
+    "intent": "billing_dispute",
+    "sentiment_signal": "frustrated",
+    "urgency": "medium",
+    "entities": {
+      "bill_id": "83921",
+      "amount": 6800
+    }
+  },
+  "conversation": [
+    {
+      "who": "customer",
+      "channel": "whatsapp",
+      "text": "I think something is wrong with my hospital bill."
+    },
+    {
+      "who": "bot",
+      "channel": "whatsapp",
+      "text": "I can help check it. Please upload your bill (PDF or photo)."
+    },
+    {
+      "who": "customer",
+      "channel": "whatsapp",
+      "text": "[Bill-83921.pdf]"
+    },
+    {
+      "who": "bot",
+      "channel": "whatsapp",
+      "text": "I found 4 items that may require clarification."
+    },
+    {
+      "who": "customer",
+      "channel": "whatsapp",
+      "text": "Explain them in Marathi."
+    },
+    {
+      "who": "customer",
+      "channel": "whatsapp",
+      "text": "Create a query for the hospital."
+    }
+  ],
+  "queryDraft": {
+    "subject": "Clarification request - Bill #83921 (CASE-48291)",
+    "body": "Dear Billing Team,\n\nI am writing regarding Bill #83921 dated 14 Sep 2026. On reviewing the bill, I would appreciate clarification on the following items:\n\n1. MRI Lumbar Spine appears twice on 13 Sep 2026 at 11:20 (lines 4 and 5, Rs 3,200 each). Please confirm whether two scans were performed.\n2. Room rent is billed for 3 days (Rs 9,600), while admission on 12 Sep and discharge on 14 Sep indicate 2 days. Please verify the billed days.\n3. Admission kit (Rs 250) appears to be listed as non-payable in my insurance policy sheet. Please clarify its treatment.\n4. Tax of Rs 150 is applied to Physiotherapy, which appears to be tax-exempt in the tariff provided to me. Please verify.\n\nThe bill is attached. Kindly review and share the outcome.\n\nThank you."
+  },
+  "hospitalEmail": {
+    "from": "billing@demohospital.example",
+    "subject": "Re: Clarification request - Bill #83921 (CASE-48291)",
+    "body": "Please provide more information about the charges you are disputing.",
+    "receivedAt": "2026-09-15T10:30:00+05:30"
+  },
+  "existingCaseBanner": {
+    "caseId": "CASE-48291",
+    "linkMethod": "reference_id",
+    "alreadyIdentified": [
+      "Room charge (3 days vs 2 days)",
+      "Possible duplicate item (MRI)",
+      "Date discrepancy",
+      "Insurance and tax queries"
+    ]
+  },
+  "emailDraftReply": "Dear Billing Team,\n\nThank you for your response. The items we are querying are listed below, and Bill #83921 is attached to CASE-48291:\n\n- Lines 4 and 5: MRI Lumbar Spine billed twice on 13 Sep 2026 at 11:20 (Rs 3,200 each)\n- Line 1: Room rent billed for 3 days; admission 12 Sep and discharge 14 Sep indicate 2 days\n- Line 7: Admission kit (Rs 250) - insurance policy treatment\n- Line 8: Tax of Rs 150 on Physiotherapy - tariff shows it as exempt\n\nKindly review these items and confirm.\n\nThank you.",
+  "statusReply": {
+    "en": "Your billing query (CASE-48291) is awaiting review by the billing team. The hospital has asked for more detail on the disputed charges, and we have already shared the items you identified. You don't need to resend your bill or repeat the issue.",
+    "hi": "आपकी बिलिंग क्वेरी (CASE-48291) बिलिंग टीम की समीक्षा की प्रतीक्षा में है। अस्पताल ने विवादित शुल्कों के बारे में अधिक जानकारी मांगी है, और आपने जो मदें बताई थीं वे हम पहले ही साझा कर चुके हैं। आपको अपना बिल दोबारा भेजने या समस्या दोहराने की ज़रूरत नहीं है।",
+    "mr": "तुमची बिलिंग क्वेरी (CASE-48291) बिलिंग टीमच्या पुनरावलोकनाच्या प्रतीक्षेत आहे. रुग्णालयाने वादग्रस्त शुल्कांबद्दल अधिक माहिती मागितली आहे, आणि तुम्ही सांगितलेल्या बाबी आम्ही आधीच कळवल्या आहेत. तुम्हाला बिल पुन्हा पाठवण्याची किंवा समस्या पुन्हा सांगण्याची गरज नाही."
+  },
+  "agentPanel": {
+    "summary": "Customer believes four billing items on Bill #83921 need clarification. The bill and main evidence were already provided on WhatsApp; the hospital has asked for more detail by email.",
+    "frustrationSignal": "moderate",
+    "urgency": "medium",
+    "recommendedAction": "Billing review appears appropriate based on the uploaded evidence.",
+    "nextBestAction": "Follow up with billing team after SLA threshold."
+  },
+  "cxInsightFallback": {
+    "category": "billing_clarification",
+    "headline": "Billing-related clarification requests have become a recurring customer issue in the demo dataset.",
+    "inferred": [
+      "Itemised bills may be hard for customers to interpret",
+      "Disputed-item details may be requested again after the customer has already provided them"
+    ],
+    "recommendation": "Add a plain-language bill explainer link to the discharge message and collect the disputed line items in the first reply, so customers are not asked to repeat them.",
+    "owner": "Billing Operations / Patient Experience",
+    "metrics": [
+      "Repeat-contact rate",
+      "Resolution time",
+      "Billing clarification volume"
+    ],
+    "disclaimer": "Inferred factors are hypotheses, not proven causes."
+  }
+}

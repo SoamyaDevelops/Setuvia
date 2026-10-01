@@ -1,0 +1,77 @@
+{
+  "billNumber": "83921",
+  "total": 42000,
+  "issuesCount": 4,
+  "amountPotentiallyRequiringReview": 6800,
+  "findings": [
+    {
+      "id": "F1",
+      "type": "possible_duplicate",
+      "amount": 3200,
+      "evidenceStrength": "HIGH",
+      "detectedBy": "rule",
+      "evidence": {
+        "lines": [
+          4,
+          5
+        ],
+        "rule": "same description + same timestamp + same amount"
+      },
+      "observation": "MRI Lumbar Spine appears twice on 13 Sep 2026 at 11:20, each for Rs 3,200 (lines 4 and 5).",
+      "interpretation": "Possible duplicate entry of one scan.",
+      "recommendation": "Ask the billing team to confirm whether two scans were performed."
+    },
+    {
+      "id": "F2",
+      "type": "stay_mismatch",
+      "amount": 3200,
+      "evidenceStrength": "HIGH",
+      "detectedBy": "rule",
+      "evidence": {
+        "lines": [
+          1
+        ],
+        "rule": "billed room days (3) vs nights between admission 12 Sep and discharge 14 Sep (2); difference 1 x Rs 3,200"
+      },
+      "observation": "Room rent is billed for 3 days (Rs 9,600), while admission 12 Sep and discharge 14 Sep indicate 2 days.",
+      "interpretation": "Possible date/stay mismatch on the room charge.",
+      "recommendation": "Ask the billing team to verify the admission/discharge dates and billed days."
+    },
+    {
+      "id": "F3",
+      "type": "insurance_review",
+      "amount": 250,
+      "evidenceStrength": "MEDIUM",
+      "detectedBy": "rule",
+      "evidence": {
+        "lines": [
+          7
+        ],
+        "rule": "item listed as non-payable in provided insurance policy sheet POL-DEMO-1042"
+      },
+      "observation": "Admission kit (Rs 250) is listed as non-payable in the provided policy sheet but appears in the bill.",
+      "interpretation": "May not be claimable under the policy; requires clarification.",
+      "recommendation": "Please verify with the insurer or billing team how this item is treated."
+    },
+    {
+      "id": "F4",
+      "type": "tax_review",
+      "amount": 150,
+      "evidenceStrength": "MEDIUM",
+      "detectedBy": "rule",
+      "evidence": {
+        "lines": [
+          8
+        ],
+        "rule": "tax charged on item marked tax-exempt in provided tariff sheet"
+      },
+      "observation": "Tax of Rs 150 is applied to Physiotherapy session, which the provided tariff marks as tax-exempt.",
+      "interpretation": "Possible tax treatment inconsistency.",
+      "recommendation": "Please verify the tax treatment with the billing team."
+    }
+  ],
+  "arithmetic": {
+    "lineMathOk": true,
+    "totalsReconcile": true
+  }
+}

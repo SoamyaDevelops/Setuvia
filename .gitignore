@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build Outputs
+dist/
+dist-ssr/
+build/
+out/
+*.tsbuildinfo
+
+# Environment & Secrets (Crucial: Never commit API keys or DB passwords)
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor & OS Metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Testing & Coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# Temporary files & Caches
+.cache/
+.parcel-cache/
+.turbo/
+*.tmp
+*.temp

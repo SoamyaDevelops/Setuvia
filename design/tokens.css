@@ -1,0 +1,54 @@
+/* Setuvia - "Paper & Ink" design tokens */
+:root {
+  /* Surfaces */
+  --paper: #F5F2EC;
+  --surface: #FFFFFF;
+  --surface-alt: #EFEBE3;
+  --line: #DDD7CB;
+  --line-strong: #C4BCAC;
+
+  /* Text */
+  --ink: #1E2326;
+  --ink-muted: #5B6368;
+  --ink-faint: #8A9094;
+
+  /* Brand */
+  --accent: #1F5C57;
+  --accent-hover: #184A46;
+  --accent-soft: #DCE9E6;
+  --clay: #A8552F;
+  --clay-soft: #F1DFD5;
+
+  /* Semantic */
+  --success: #3D7A55;  --success-soft: #DDEBE1;
+  --warning: #A87414;  --warning-soft: #F4E8CC;
+  --danger:  #9C3A33;  --danger-soft:  #F2DCDA;
+  --info:    #3A587A;  --info-soft:    #DCE5EF;
+
+  /* Channel tints (muted) */
+  --ch-whatsapp: #D9E6D8;
+  --ch-email: #DCE5EF;
+  --ch-web: #EAE3D3;
+
+  /* Charts */
+  --chart-1: #1F5C57; --chart-2: #A8552F; --chart-3: #3A587A;
+  --chart-4: #A87414; --chart-5: #6D6A5E; --chart-6: #7A9A8E;
+
+  /* Shape & motion */
+  --radius-sm: 6px; --radius-md: 8px;
+  --shadow-pop: 0 4px 16px rgba(30, 35, 38, 0.10);
+  --ease: 160ms ease;
+
+  /* Type */
+  --font-display: "Newsreader", "Noto Serif Devanagari", Georgia, serif;
+  --font-sans: "Public Sans", "Noto Sans Devanagari", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+
+html { background: var(--paper); color: var(--ink); font-family: var(--font-sans); font-size: 14px; line-height: 1.5; }
+body { margin: 0; -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.money { font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: var(--radius-sm); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }

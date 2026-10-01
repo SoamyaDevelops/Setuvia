@@ -1,0 +1,29 @@
+{
+  "_note": "Configuration-driven. Model IDs come from env/DB - never hard-code names or quotas. Limits are conservative local throttles, not claims about provider quotas.",
+  "budgetMode": "FREE_ONLY",
+  "routing": "automatic",
+  "maxRetries": 2,
+  "maxProvidersPerTask": 3,
+  "useLocalFallback": true,
+  "backoff": { "baseMs": 500, "maxMs": 8000, "jitter": true },
+  "circuitBreaker": { "failureThreshold": 3, "cooldownSeconds": 60 },
+  "providers": [
+    { "id": "gemini", "enabled": true, "freeStatus": "free_tier_verify", "credentialsFrom": "env:GEMINI_API_KEY",
+      "models": {
+        "FAST": "env:GEMINI_MODEL_FAST",
+        "BALANCED": "env:GEMINI_MODEL_BALANCED",
+        "REASONING": "env:GEMINI_MODEL_REASONING",
+        "VISION": "env:GEMINI_MODEL_VISION"
+      },
+      "limits": { "rpm": "env:AI_RPM_LIMIT", "rpd": "env:AI_RPD_LIMIT" } },
+    { "id": "openai", "enabled": false, "note": "adapter stub; not required" },
+    { "id": "anthropic", "enabled": false, "note": "adapter stub; not required" },
+    { "id": "mock", "enabled": true, "note": "serves fixtures/golden_path.json; always last in fallback" }
+  ],
+  "taskMap": {
+    "intent_classification": "FAST", "sentiment": "FAST", "summary": "FAST", "issue_categorization": "FAST",
+    "customer_reply": "BALANCED", "translation": "BALANCED", "agent_assistant": "BALANCED",
+    "document_extraction": "VISION", "cx_insight": "REASONING", "recommendation": "REASONING"
+  },
+  "deterministicTasks": ["arithmetic","totals","duplicate_check","date_check","status_transition","sla","trend_math","aggregation","status_reply"]
+}

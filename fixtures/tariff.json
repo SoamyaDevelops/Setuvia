@@ -1,0 +1,46 @@
+{
+  "_note": "ILLUSTRATIVE SYNTHETIC tariff and policy sheet for the demo. Not real tax/medical/legal guidance.",
+  "rates": {
+    "Room rent - semi-private": {
+      "unit": "per day",
+      "rate": 3200
+    },
+    "Nursing charges": {
+      "unit": "per day",
+      "rate": 800
+    },
+    "Doctor consultation": {
+      "unit": "per visit",
+      "rate": 1500
+    },
+    "MRI Lumbar Spine": {
+      "unit": "per scan",
+      "rate": 3200
+    },
+    "Pathology - CBC and LFT panel": {
+      "unit": "per panel",
+      "rate": 2400
+    },
+    "Physiotherapy session": {
+      "unit": "per session",
+      "rate": 1500
+    },
+    "Admission kit": {
+      "unit": "per admission",
+      "rate": 250
+    }
+  },
+  "taxExemptItems": [
+    "Physiotherapy session"
+  ],
+  "insurancePolicy": {
+    "policyRef": "POL-DEMO-1042",
+    "nonPayableItems": [
+      "Admission kit"
+    ]
+  },
+  "rules": {
+    "duplicateWindow": "same description + same date/time + same amount",
+    "roomDaysRule": "billed room days should equal nights between admission and discharge"
+  }
+}

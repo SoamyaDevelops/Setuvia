@@ -1,0 +1,23 @@
+{
+  "_note": "AI-translated demo explanations. Label in UI: 'AI-translated - please verify with the billing team.' Numbers/IDs/dates unchanged.",
+  "F1": {
+    "en": "The MRI Lumbar Spine appears twice on 13 Sep 2026 at the same time, each for Rs 3,200. Please verify whether the scan was done twice.",
+    "hi": "एमआरआई (लम्बर स्पाइन) 13 सितंबर 2026 को एक ही समय पर दो बार दिखाई देता है, प्रत्येक ₹3,200 का। कृपया पुष्टि करें कि स्कैन दो बार किया गया था या नहीं।",
+    "mr": "एमआरआय (लंबर स्पाइन) 13 सप्टेंबर 2026 रोजी एकाच वेळी दोनदा दिसत आहे, प्रत्येकी ₹3,200. कृपया स्कॅन दोनदा केला होता का ते तपासा."
+  },
+  "F2": {
+    "en": "Room rent appears to be charged for 3 days (Rs 9,600), while the admission (12 Sep) and discharge (14 Sep) dates indicate a 2-day stay. Please verify the dates.",
+    "hi": "कमरे का किराया 3 दिनों के लिए (₹9,600) लगाया गया दिखाई देता है, जबकि भर्ती (12 सितंबर) और छुट्टी (14 सितंबर) की तारीखें 2 दिनों का प्रवास दर्शाती हैं। कृपया तारीखों की पुष्टि करें।",
+    "mr": "रूम भाडे 3 दिवसांसाठी (₹9,600) आकारलेले दिसत आहे, तर दाखल (12 सप्टेंबर) आणि सुट्टी (14 सप्टेंबर) च्या तारखा 2 दिवसांचा मुक्काम दर्शवतात. कृपया तारखा तपासा."
+  },
+  "F3": {
+    "en": "The 'Admission kit' (Rs 250) is listed as non-payable in the provided insurance policy sheet but appears in the bill. Please verify with the insurer or billing team.",
+    "hi": "'एडमिशन किट' (₹250) उपलब्ध बीमा पॉलिसी शीट में अदेय (नॉन-पेएबल) के रूप में सूचीबद्ध है, लेकिन बिल में दिखाई देती है। कृपया बीमा कंपनी या बिलिंग टीम से पुष्टि करें।",
+    "mr": "'ॲडमिशन किट' (₹250) उपलब्ध विमा पॉलिसी शीटमध्ये नॉन-पेएबल म्हणून नमूद आहे, परंतु बिलात दिसत आहे. कृपया विमा कंपनी किंवा बिलिंग टीमकडे खात्री करा."
+  },
+  "F4": {
+    "en": "A tax of Rs 150 is applied to Physiotherapy, which the provided tariff sheet marks as tax-exempt. Please verify the tax treatment.",
+    "hi": "फिजियोथेरेपी पर ₹150 का कर लगाया गया है, जबकि उपलब्ध टैरिफ शीट में इसे कर-मुक्त बताया गया है। कृपया कर की स्थिति की पुष्टि करें।",
+    "mr": "फिजिओथेरपीवर ₹150 कर आकारलेला आहे, तर उपलब्ध टॅरिफ शीटमध्ये ते करमुक्त दाखवले आहे. कृपया कराची स्थिती तपासा."
+  }
+}

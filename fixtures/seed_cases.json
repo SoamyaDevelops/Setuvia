@@ -1,0 +1,1443 @@
+{
+ "_note": "SYNTHETIC demo dataset. Categories precomputed. 'oracle' is for tests only - the app must compute figures from rows.",
+ "period": {
+  "start": "2026-08-03",
+  "weeks": 8
+ },
+ "categories": {
+  "billing_clarification": "Billing clarification requests",
+  "claim_status": "Insurance claim status uncertainty",
+  "appointment_rescheduling": "Appointment rescheduling",
+  "report_delay": "Lab report delays"
+ },
+ "customers": [
+  {
+   "id": "CUST-1001",
+   "name": "Aarav K.",
+   "preferredLanguage": "en",
+   "accountId": "ACC-1001",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1002",
+   "name": "Diya M.",
+   "preferredLanguage": "en",
+   "accountId": "ACC-1002",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1003",
+   "name": "Rohan S.",
+   "preferredLanguage": "mr",
+   "accountId": "ACC-1003",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1004",
+   "name": "Sneha T.",
+   "preferredLanguage": "en",
+   "accountId": "ACC-1004",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1005",
+   "name": "Kabir J.",
+   "preferredLanguage": "en",
+   "accountId": "ACC-1005",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1006",
+   "name": "Meera K.",
+   "preferredLanguage": "en",
+   "accountId": "ACC-1006",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1007",
+   "name": "Vihaan T.",
+   "preferredLanguage": "hi",
+   "accountId": "ACC-1007",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1008",
+   "name": "Ananya T.",
+   "preferredLanguage": "en",
+   "accountId": "ACC-1008",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1009",
+   "name": "Arjun T.",
+   "preferredLanguage": "en",
+   "accountId": "ACC-1009",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1010",
+   "name": "Isha R.",
+   "preferredLanguage": "hi",
+   "accountId": "ACC-1010",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1011",
+   "name": "Neel P.",
+   "preferredLanguage": "mr",
+   "accountId": "ACC-1011",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1012",
+   "name": "Pooja S.",
+   "preferredLanguage": "hi",
+   "accountId": "ACC-1012",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1013",
+   "name": "Sahil N.",
+   "preferredLanguage": "en",
+   "accountId": "ACC-1013",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1014",
+   "name": "Tara D.",
+   "preferredLanguage": "mr",
+   "accountId": "ACC-1014",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1015",
+   "name": "Yash N.",
+   "preferredLanguage": "en",
+   "accountId": "ACC-1015",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1016",
+   "name": "Riya J.",
+   "preferredLanguage": "en",
+   "accountId": "ACC-1016",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1017",
+   "name": "Om N.",
+   "preferredLanguage": "hi",
+   "accountId": "ACC-1017",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1018",
+   "name": "Kavya P.",
+   "preferredLanguage": "mr",
+   "accountId": "ACC-1018",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1019",
+   "name": "Nikhil T.",
+   "preferredLanguage": "en",
+   "accountId": "ACC-1019",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1020",
+   "name": "Sana J.",
+   "preferredLanguage": "en",
+   "accountId": "ACC-1020",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1021",
+   "name": "Dev M.",
+   "preferredLanguage": "mr",
+   "accountId": "ACC-1021",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1022",
+   "name": "Mitali B.",
+   "preferredLanguage": "mr",
+   "accountId": "ACC-1022",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1023",
+   "name": "Rahul N.",
+   "preferredLanguage": "hi",
+   "accountId": "ACC-1023",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1024",
+   "name": "Preeti K.",
+   "preferredLanguage": "en",
+   "accountId": "ACC-1024",
+   "synthetic": true
+  },
+  {
+   "id": "CUST-1025",
+   "name": "Harsh D.",
+   "preferredLanguage": "mr",
+   "accountId": "ACC-1025",
+   "synthetic": true
+  }
+ ],
+ "cases": [
+  {
+   "id": "CASE-40001",
+   "customerId": "CUST-1004",
+   "category": "billing_clarification",
+   "team": "Billing Support",
+   "createdAt": "2026-08-03T12:55:00",
+   "week": 1,
+   "channel": "web",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 2,
+   "repeatContact": true,
+   "resolutionDays": 7,
+   "quote": "I already sent the bill.",
+   "interactions": [
+    {
+     "channel": "web",
+     "at": "2026-08-03T12:55:00",
+     "text": "I already sent the bill."
+    },
+    {
+     "channel": "email",
+     "at": "2026-08-04T03:55:00",
+     "text": "I already sent the bill."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40002",
+   "customerId": "CUST-1022",
+   "category": "billing_clarification",
+   "team": "Billing Support",
+   "createdAt": "2026-08-11T13:44:00",
+   "week": 2,
+   "channel": "web",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 1,
+   "repeatContact": false,
+   "resolutionDays": 8,
+   "quote": "हा आयटम काय आहे ते कोणीही सांगितले नाही.",
+   "interactions": [
+    {
+     "channel": "web",
+     "at": "2026-08-11T13:44:00",
+     "text": "हा आयटम काय आहे ते कोणीही सांगितले नाही."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40003",
+   "customerId": "CUST-1013",
+   "category": "billing_clarification",
+   "team": "Billing Support",
+   "createdAt": "2026-08-18T11:29:00",
+   "week": 3,
+   "channel": "web",
+   "status": "RESOLVED",
+   "escalated": true,
+   "contactCount": 4,
+   "repeatContact": true,
+   "resolutionDays": 9,
+   "quote": "I already sent the bill.",
+   "interactions": [
+    {
+     "channel": "web",
+     "at": "2026-08-18T11:29:00",
+     "text": "I already sent the bill."
+    },
+    {
+     "channel": "web",
+     "at": "2026-08-19T07:29:00",
+     "text": "I already sent the bill."
+    },
+    {
+     "channel": "whatsapp",
+     "at": "2026-08-19T21:29:00",
+     "text": "I already sent the bill."
+    },
+    {
+     "channel": "whatsapp",
+     "at": "2026-08-22T20:29:00",
+     "text": "I already sent the bill."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40004",
+   "customerId": "CUST-1019",
+   "category": "billing_clarification",
+   "team": "Billing Support",
+   "createdAt": "2026-08-19T10:13:00",
+   "week": 3,
+   "channel": "web",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 2,
+   "repeatContact": true,
+   "resolutionDays": 5,
+   "quote": "Nobody told me what this item is.",
+   "interactions": [
+    {
+     "channel": "web",
+     "at": "2026-08-19T10:13:00",
+     "text": "Nobody told me what this item is."
+    },
+    {
+     "channel": "email",
+     "at": "2026-08-21T00:13:00",
+     "text": "Nobody told me what this item is."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40005",
+   "customerId": "CUST-1005",
+   "category": "billing_clarification",
+   "team": "Billing Support",
+   "createdAt": "2026-08-27T11:16:00",
+   "week": 4,
+   "channel": "web",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 4,
+   "repeatContact": true,
+   "resolutionDays": 8,
+   "quote": "Please explain these charges.",
+   "interactions": [
+    {
+     "channel": "web",
+     "at": "2026-08-27T11:16:00",
+     "text": "Please explain these charges."
+    },
+    {
+     "channel": "web",
+     "at": "2026-08-28T15:16:00",
+     "text": "Please explain these charges."
+    },
+    {
+     "channel": "email",
+     "at": "2026-08-30T15:16:00",
+     "text": "Please explain these charges."
+    },
+    {
+     "channel": "web",
+     "at": "2026-08-30T05:16:00",
+     "text": "Please explain these charges."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40006",
+   "customerId": "CUST-1003",
+   "category": "billing_clarification",
+   "team": "Billing Support",
+   "createdAt": "2026-08-25T17:31:00",
+   "week": 4,
+   "channel": "web",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 1,
+   "repeatContact": false,
+   "resolutionDays": 5,
+   "quote": "कृपया या शुल्कांचे स्पष्टीकरण द्या.",
+   "interactions": [
+    {
+     "channel": "web",
+     "at": "2026-08-25T17:31:00",
+     "text": "कृपया या शुल्कांचे स्पष्टीकरण द्या."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40007",
+   "customerId": "CUST-1013",
+   "category": "billing_clarification",
+   "team": "Billing Support",
+   "createdAt": "2026-09-03T18:04:00",
+   "week": 5,
+   "channel": "web",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 3,
+   "repeatContact": true,
+   "resolutionDays": 7,
+   "quote": "I already sent the bill.",
+   "interactions": [
+    {
+     "channel": "web",
+     "at": "2026-09-03T18:04:00",
+     "text": "I already sent the bill."
+    },
+    {
+     "channel": "web",
+     "at": "2026-09-05T07:04:00",
+     "text": "I already sent the bill."
+    },
+    {
+     "channel": "whatsapp",
+     "at": "2026-09-06T08:04:00",
+     "text": "I already sent the bill."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40008",
+   "customerId": "CUST-1009",
+   "category": "billing_clarification",
+   "team": "Billing Support",
+   "createdAt": "2026-09-05T17:48:00",
+   "week": 5,
+   "channel": "email",
+   "status": "RESOLVED",
+   "escalated": true,
+   "contactCount": 2,
+   "repeatContact": true,
+   "resolutionDays": 4,
+   "quote": "Nobody told me what this item is.",
+   "interactions": [
+    {
+     "channel": "email",
+     "at": "2026-09-05T17:48:00",
+     "text": "Nobody told me what this item is."
+    },
+    {
+     "channel": "whatsapp",
+     "at": "2026-09-06T17:48:00",
+     "text": "Nobody told me what this item is."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40009",
+   "customerId": "CUST-1025",
+   "category": "billing_clarification",
+   "team": "Billing Support",
+   "createdAt": "2026-09-05T13:32:00",
+   "week": 5,
+   "channel": "web",
+   "status": "RESOLVED",
+   "escalated": true,
+   "contactCount": 3,
+   "repeatContact": true,
+   "resolutionDays": 4,
+   "quote": "कृपया या शुल्कांचे स्पष्टीकरण द्या.",
+   "interactions": [
+    {
+     "channel": "web",
+     "at": "2026-09-05T13:32:00",
+     "text": "कृपया या शुल्कांचे स्पष्टीकरण द्या."
+    },
+    {
+     "channel": "web",
+     "at": "2026-09-06T15:32:00",
+     "text": "Please explain these charges."
+    },
+    {
+     "channel": "web",
+     "at": "2026-09-06T21:32:00",
+     "text": "Please explain these charges."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40010",
+   "customerId": "CUST-1025",
+   "category": "billing_clarification",
+   "team": "Billing Support",
+   "createdAt": "2026-09-13T11:34:00",
+   "week": 6,
+   "channel": "email",
+   "status": "RESOLVED",
+   "escalated": true,
+   "contactCount": 1,
+   "repeatContact": false,
+   "resolutionDays": 8,
+   "quote": "हा आयटम काय आहे ते कोणीही सांगितले नाही.",
+   "interactions": [
+    {
+     "channel": "email",
+     "at": "2026-09-13T11:34:00",
+     "text": "हा आयटम काय आहे ते कोणीही सांगितले नाही."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40011",
+   "customerId": "CUST-1002",
+   "category": "billing_clarification",
+   "team": "Billing Support",
+   "createdAt": "2026-09-09T13:15:00",
+   "week": 6,
+   "channel": "whatsapp",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 3,
+   "repeatContact": true,
+   "resolutionDays": 4,
+   "quote": "Please explain these charges.",
+   "interactions": [
+    {
+     "channel": "whatsapp",
+     "at": "2026-09-09T13:15:00",
+     "text": "Please explain these charges."
+    },
+    {
+     "channel": "email",
+     "at": "2026-09-11T01:15:00",
+     "text": "Please explain these charges."
+    },
+    {
+     "channel": "whatsapp",
+     "at": "2026-09-12T09:15:00",
+     "text": "Please explain these charges."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40012",
+   "customerId": "CUST-1016",
+   "category": "billing_clarification",
+   "team": "Billing Support",
+   "createdAt": "2026-09-08T11:42:00",
+   "week": 6,
+   "channel": "web",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 2,
+   "repeatContact": true,
+   "resolutionDays": 6,
+   "quote": "Nobody told me what this item is.",
+   "interactions": [
+    {
+     "channel": "web",
+     "at": "2026-09-08T11:42:00",
+     "text": "Nobody told me what this item is."
+    },
+    {
+     "channel": "web",
+     "at": "2026-09-09T10:42:00",
+     "text": "Nobody told me what this item is."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40013",
+   "customerId": "CUST-1010",
+   "category": "billing_clarification",
+   "team": "Billing Support",
+   "createdAt": "2026-09-18T12:45:00",
+   "week": 7,
+   "channel": "email",
+   "status": "RESOLVED",
+   "escalated": true,
+   "contactCount": 4,
+   "repeatContact": true,
+   "resolutionDays": 9,
+   "quote": "मैं बिल पहले ही भेज चुका हूँ।",
+   "interactions": [
+    {
+     "channel": "email",
+     "at": "2026-09-18T12:45:00",
+     "text": "मैं बिल पहले ही भेज चुका हूँ।"
+    },
+    {
+     "channel": "web",
+     "at": "2026-09-19T12:45:00",
+     "text": "I already sent the bill."
+    },
+    {
+     "channel": "whatsapp",
+     "at": "2026-09-19T22:45:00",
+     "text": "I already sent the bill."
+    },
+    {
+     "channel": "whatsapp",
+     "at": "2026-09-20T00:45:00",
+     "text": "I already sent the bill."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40014",
+   "customerId": "CUST-1019",
+   "category": "billing_clarification",
+   "team": "Billing Support",
+   "createdAt": "2026-09-18T17:14:00",
+   "week": 7,
+   "channel": "web",
+   "status": "RESOLVED",
+   "escalated": true,
+   "contactCount": 1,
+   "repeatContact": false,
+   "resolutionDays": 4,
+   "quote": "Please explain these charges.",
+   "interactions": [
+    {
+     "channel": "web",
+     "at": "2026-09-18T17:14:00",
+     "text": "Please explain these charges."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40015",
+   "customerId": "CUST-1011",
+   "category": "billing_clarification",
+   "team": "Billing Support",
+   "createdAt": "2026-09-14T09:55:00",
+   "week": 7,
+   "channel": "email",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 3,
+   "repeatContact": true,
+   "resolutionDays": 5,
+   "quote": "कृपया या शुल्कांचे स्पष्टीकरण द्या.",
+   "interactions": [
+    {
+     "channel": "email",
+     "at": "2026-09-14T09:55:00",
+     "text": "कृपया या शुल्कांचे स्पष्टीकरण द्या."
+    },
+    {
+     "channel": "email",
+     "at": "2026-09-15T01:55:00",
+     "text": "Please explain these charges."
+    },
+    {
+     "channel": "web",
+     "at": "2026-09-15T13:55:00",
+     "text": "Please explain these charges."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40016",
+   "customerId": "CUST-1008",
+   "category": "billing_clarification",
+   "team": "Billing Support",
+   "createdAt": "2026-09-18T18:30:00",
+   "week": 7,
+   "channel": "whatsapp",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 3,
+   "repeatContact": true,
+   "resolutionDays": 5,
+   "quote": "I already sent the bill.",
+   "interactions": [
+    {
+     "channel": "whatsapp",
+     "at": "2026-09-18T18:30:00",
+     "text": "I already sent the bill."
+    },
+    {
+     "channel": "web",
+     "at": "2026-09-19T17:30:00",
+     "text": "I already sent the bill."
+    },
+    {
+     "channel": "email",
+     "at": "2026-09-20T16:30:00",
+     "text": "I already sent the bill."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40017",
+   "customerId": "CUST-1021",
+   "category": "billing_clarification",
+   "team": "Billing Support",
+   "createdAt": "2026-09-27T09:43:00",
+   "week": 8,
+   "channel": "email",
+   "status": "AWAITING_REVIEW",
+   "escalated": false,
+   "contactCount": 1,
+   "repeatContact": false,
+   "resolutionDays": null,
+   "quote": "हा आयटम काय आहे ते कोणीही सांगितले नाही.",
+   "interactions": [
+    {
+     "channel": "email",
+     "at": "2026-09-27T09:43:00",
+     "text": "हा आयटम काय आहे ते कोणीही सांगितले नाही."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40018",
+   "customerId": "CUST-1007",
+   "category": "billing_clarification",
+   "team": "Billing Support",
+   "createdAt": "2026-09-21T12:12:00",
+   "week": 8,
+   "channel": "email",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 3,
+   "repeatContact": true,
+   "resolutionDays": 5,
+   "quote": "मुझे किसी ने नहीं बताया कि यह मद क्या है।",
+   "interactions": [
+    {
+     "channel": "email",
+     "at": "2026-09-21T12:12:00",
+     "text": "मुझे किसी ने नहीं बताया कि यह मद क्या है।"
+    },
+    {
+     "channel": "email",
+     "at": "2026-09-22T12:12:00",
+     "text": "Nobody told me what this item is."
+    },
+    {
+     "channel": "whatsapp",
+     "at": "2026-09-24T14:12:00",
+     "text": "Nobody told me what this item is."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40019",
+   "customerId": "CUST-1002",
+   "category": "billing_clarification",
+   "team": "Billing Support",
+   "createdAt": "2026-09-24T17:06:00",
+   "week": 8,
+   "channel": "whatsapp",
+   "status": "AWAITING_REVIEW",
+   "escalated": true,
+   "contactCount": 3,
+   "repeatContact": true,
+   "resolutionDays": null,
+   "quote": "Nobody told me what this item is.",
+   "interactions": [
+    {
+     "channel": "whatsapp",
+     "at": "2026-09-24T17:06:00",
+     "text": "Nobody told me what this item is."
+    },
+    {
+     "channel": "whatsapp",
+     "at": "2026-09-25T08:06:00",
+     "text": "Nobody told me what this item is."
+    },
+    {
+     "channel": "email",
+     "at": "2026-09-26T19:06:00",
+     "text": "Nobody told me what this item is."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40020",
+   "customerId": "CUST-1013",
+   "category": "billing_clarification",
+   "team": "Billing Support",
+   "createdAt": "2026-09-24T09:10:00",
+   "week": 8,
+   "channel": "email",
+   "status": "ESCALATED",
+   "escalated": false,
+   "contactCount": 3,
+   "repeatContact": true,
+   "resolutionDays": null,
+   "quote": "Please explain these charges.",
+   "interactions": [
+    {
+     "channel": "email",
+     "at": "2026-09-24T09:10:00",
+     "text": "Please explain these charges."
+    },
+    {
+     "channel": "email",
+     "at": "2026-09-25T17:10:00",
+     "text": "Please explain these charges."
+    },
+    {
+     "channel": "web",
+     "at": "2026-09-27T07:10:00",
+     "text": "Please explain these charges."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40021",
+   "customerId": "CUST-1010",
+   "category": "billing_clarification",
+   "team": "Billing Support",
+   "createdAt": "2026-09-24T11:12:00",
+   "week": 8,
+   "channel": "web",
+   "status": "OPEN",
+   "escalated": false,
+   "contactCount": 1,
+   "repeatContact": false,
+   "resolutionDays": null,
+   "quote": "कृपया इन शुल्कों की व्याख्या करें।",
+   "interactions": [
+    {
+     "channel": "web",
+     "at": "2026-09-24T11:12:00",
+     "text": "कृपया इन शुल्कों की व्याख्या करें।"
+    }
+   ]
+  },
+  {
+   "id": "CASE-40022",
+   "customerId": "CUST-1016",
+   "category": "claim_status",
+   "team": "Insurance Desk",
+   "createdAt": "2026-08-03T09:37:00",
+   "week": 1,
+   "channel": "whatsapp",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 1,
+   "repeatContact": false,
+   "resolutionDays": 3,
+   "quote": "Where is my insurance claim?",
+   "interactions": [
+    {
+     "channel": "whatsapp",
+     "at": "2026-08-03T09:37:00",
+     "text": "Where is my insurance claim?"
+    }
+   ]
+  },
+  {
+   "id": "CASE-40023",
+   "customerId": "CUST-1004",
+   "category": "claim_status",
+   "team": "Insurance Desk",
+   "createdAt": "2026-08-15T12:25:00",
+   "week": 2,
+   "channel": "web",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 3,
+   "repeatContact": true,
+   "resolutionDays": 3,
+   "quote": "Where is my insurance claim?",
+   "interactions": [
+    {
+     "channel": "web",
+     "at": "2026-08-15T12:25:00",
+     "text": "Where is my insurance claim?"
+    },
+    {
+     "channel": "email",
+     "at": "2026-08-16T19:25:00",
+     "text": "Where is my insurance claim?"
+    },
+    {
+     "channel": "web",
+     "at": "2026-08-17T20:25:00",
+     "text": "Where is my insurance claim?"
+    }
+   ]
+  },
+  {
+   "id": "CASE-40024",
+   "customerId": "CUST-1023",
+   "category": "claim_status",
+   "team": "Insurance Desk",
+   "createdAt": "2026-08-19T12:42:00",
+   "week": 3,
+   "channel": "email",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 1,
+   "repeatContact": false,
+   "resolutionDays": 5,
+   "quote": "किसी ने नहीं बताया कि यह कब निपटेगा।",
+   "interactions": [
+    {
+     "channel": "email",
+     "at": "2026-08-19T12:42:00",
+     "text": "किसी ने नहीं बताया कि यह कब निपटेगा।"
+    }
+   ]
+  },
+  {
+   "id": "CASE-40025",
+   "customerId": "CUST-1025",
+   "category": "claim_status",
+   "team": "Insurance Desk",
+   "createdAt": "2026-08-26T16:20:00",
+   "week": 4,
+   "channel": "web",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 1,
+   "repeatContact": false,
+   "resolutionDays": 6,
+   "quote": "माझा विमा दावा कुठे आहे?",
+   "interactions": [
+    {
+     "channel": "web",
+     "at": "2026-08-26T16:20:00",
+     "text": "माझा विमा दावा कुठे आहे?"
+    }
+   ]
+  },
+  {
+   "id": "CASE-40026",
+   "customerId": "CUST-1017",
+   "category": "claim_status",
+   "team": "Insurance Desk",
+   "createdAt": "2026-08-24T17:13:00",
+   "week": 4,
+   "channel": "whatsapp",
+   "status": "RESOLVED",
+   "escalated": true,
+   "contactCount": 1,
+   "repeatContact": false,
+   "resolutionDays": 5,
+   "quote": "किसी ने नहीं बताया कि यह कब निपटेगा।",
+   "interactions": [
+    {
+     "channel": "whatsapp",
+     "at": "2026-08-24T17:13:00",
+     "text": "किसी ने नहीं बताया कि यह कब निपटेगा।"
+    }
+   ]
+  },
+  {
+   "id": "CASE-40027",
+   "customerId": "CUST-1018",
+   "category": "claim_status",
+   "team": "Insurance Desk",
+   "createdAt": "2026-09-02T11:28:00",
+   "week": 5,
+   "channel": "web",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 3,
+   "repeatContact": true,
+   "resolutionDays": 3,
+   "quote": "तो केव्हा निकाली निघेल ते कोणी सांगितले नाही.",
+   "interactions": [
+    {
+     "channel": "web",
+     "at": "2026-09-02T11:28:00",
+     "text": "तो केव्हा निकाली निघेल ते कोणी सांगितले नाही."
+    },
+    {
+     "channel": "web",
+     "at": "2026-09-03T06:28:00",
+     "text": "Nobody told me when it would be settled."
+    },
+    {
+     "channel": "web",
+     "at": "2026-09-03T13:28:00",
+     "text": "Nobody told me when it would be settled."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40028",
+   "customerId": "CUST-1004",
+   "category": "claim_status",
+   "team": "Insurance Desk",
+   "createdAt": "2026-09-08T13:07:00",
+   "week": 6,
+   "channel": "web",
+   "status": "RESOLVED",
+   "escalated": true,
+   "contactCount": 2,
+   "repeatContact": true,
+   "resolutionDays": 5,
+   "quote": "Where is my insurance claim?",
+   "interactions": [
+    {
+     "channel": "web",
+     "at": "2026-09-08T13:07:00",
+     "text": "Where is my insurance claim?"
+    },
+    {
+     "channel": "web",
+     "at": "2026-09-09T09:07:00",
+     "text": "Where is my insurance claim?"
+    }
+   ]
+  },
+  {
+   "id": "CASE-40029",
+   "customerId": "CUST-1016",
+   "category": "claim_status",
+   "team": "Insurance Desk",
+   "createdAt": "2026-09-19T13:32:00",
+   "week": 7,
+   "channel": "web",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 1,
+   "repeatContact": false,
+   "resolutionDays": 3,
+   "quote": "Nobody told me when it would be settled.",
+   "interactions": [
+    {
+     "channel": "web",
+     "at": "2026-09-19T13:32:00",
+     "text": "Nobody told me when it would be settled."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40030",
+   "customerId": "CUST-1025",
+   "category": "claim_status",
+   "team": "Insurance Desk",
+   "createdAt": "2026-09-14T09:21:00",
+   "week": 7,
+   "channel": "web",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 2,
+   "repeatContact": true,
+   "resolutionDays": 4,
+   "quote": "माझा विमा दावा कुठे आहे?",
+   "interactions": [
+    {
+     "channel": "web",
+     "at": "2026-09-14T09:21:00",
+     "text": "माझा विमा दावा कुठे आहे?"
+    },
+    {
+     "channel": "web",
+     "at": "2026-09-15T17:21:00",
+     "text": "Where is my insurance claim?"
+    }
+   ]
+  },
+  {
+   "id": "CASE-40031",
+   "customerId": "CUST-1023",
+   "category": "claim_status",
+   "team": "Insurance Desk",
+   "createdAt": "2026-09-21T10:04:00",
+   "week": 8,
+   "channel": "email",
+   "status": "RESOLVED",
+   "escalated": true,
+   "contactCount": 3,
+   "repeatContact": true,
+   "resolutionDays": 3,
+   "quote": "मेरा बीमा दावा कहाँ है?",
+   "interactions": [
+    {
+     "channel": "email",
+     "at": "2026-09-21T10:04:00",
+     "text": "मेरा बीमा दावा कहाँ है?"
+    },
+    {
+     "channel": "web",
+     "at": "2026-09-22T00:04:00",
+     "text": "Where is my insurance claim?"
+    },
+    {
+     "channel": "email",
+     "at": "2026-09-22T14:04:00",
+     "text": "Where is my insurance claim?"
+    }
+   ]
+  },
+  {
+   "id": "CASE-40032",
+   "customerId": "CUST-1012",
+   "category": "appointment_rescheduling",
+   "team": "Front Desk",
+   "createdAt": "2026-08-05T09:57:00",
+   "week": 1,
+   "channel": "email",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 1,
+   "repeatContact": false,
+   "resolutionDays": 1,
+   "quote": "क्या मैं अपॉइंटमेंट अगले हफ्ते कर सकता हूँ?",
+   "interactions": [
+    {
+     "channel": "email",
+     "at": "2026-08-05T09:57:00",
+     "text": "क्या मैं अपॉइंटमेंट अगले हफ्ते कर सकता हूँ?"
+    }
+   ]
+  },
+  {
+   "id": "CASE-40033",
+   "customerId": "CUST-1024",
+   "category": "appointment_rescheduling",
+   "team": "Front Desk",
+   "createdAt": "2026-08-16T15:39:00",
+   "week": 2,
+   "channel": "whatsapp",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 1,
+   "repeatContact": false,
+   "resolutionDays": 1,
+   "quote": "Can I move my appointment to next week?",
+   "interactions": [
+    {
+     "channel": "whatsapp",
+     "at": "2026-08-16T15:39:00",
+     "text": "Can I move my appointment to next week?"
+    }
+   ]
+  },
+  {
+   "id": "CASE-40034",
+   "customerId": "CUST-1014",
+   "category": "appointment_rescheduling",
+   "team": "Front Desk",
+   "createdAt": "2026-08-11T14:50:00",
+   "week": 2,
+   "channel": "web",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 1,
+   "repeatContact": false,
+   "resolutionDays": 1,
+   "quote": "मी माझी अपॉइंटमेंट पुढच्या आठवड्यात घेऊ शकतो का?",
+   "interactions": [
+    {
+     "channel": "web",
+     "at": "2026-08-11T14:50:00",
+     "text": "मी माझी अपॉइंटमेंट पुढच्या आठवड्यात घेऊ शकतो का?"
+    }
+   ]
+  },
+  {
+   "id": "CASE-40035",
+   "customerId": "CUST-1007",
+   "category": "appointment_rescheduling",
+   "team": "Front Desk",
+   "createdAt": "2026-08-17T16:14:00",
+   "week": 3,
+   "channel": "whatsapp",
+   "status": "RESOLVED",
+   "escalated": true,
+   "contactCount": 1,
+   "repeatContact": false,
+   "resolutionDays": 2,
+   "quote": "क्या मैं अपॉइंटमेंट अगले हफ्ते कर सकता हूँ?",
+   "interactions": [
+    {
+     "channel": "whatsapp",
+     "at": "2026-08-17T16:14:00",
+     "text": "क्या मैं अपॉइंटमेंट अगले हफ्ते कर सकता हूँ?"
+    }
+   ]
+  },
+  {
+   "id": "CASE-40036",
+   "customerId": "CUST-1009",
+   "category": "appointment_rescheduling",
+   "team": "Front Desk",
+   "createdAt": "2026-08-25T15:21:00",
+   "week": 4,
+   "channel": "web",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 1,
+   "repeatContact": false,
+   "resolutionDays": 2,
+   "quote": "Can I move my appointment to next week?",
+   "interactions": [
+    {
+     "channel": "web",
+     "at": "2026-08-25T15:21:00",
+     "text": "Can I move my appointment to next week?"
+    }
+   ]
+  },
+  {
+   "id": "CASE-40037",
+   "customerId": "CUST-1001",
+   "category": "appointment_rescheduling",
+   "team": "Front Desk",
+   "createdAt": "2026-09-06T17:21:00",
+   "week": 5,
+   "channel": "web",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 1,
+   "repeatContact": false,
+   "resolutionDays": 1,
+   "quote": "Can I move my appointment to next week?",
+   "interactions": [
+    {
+     "channel": "web",
+     "at": "2026-09-06T17:21:00",
+     "text": "Can I move my appointment to next week?"
+    }
+   ]
+  },
+  {
+   "id": "CASE-40038",
+   "customerId": "CUST-1014",
+   "category": "appointment_rescheduling",
+   "team": "Front Desk",
+   "createdAt": "2026-08-31T10:38:00",
+   "week": 5,
+   "channel": "web",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 1,
+   "repeatContact": false,
+   "resolutionDays": 2,
+   "quote": "मी माझी अपॉइंटमेंट पुढच्या आठवड्यात घेऊ शकतो का?",
+   "interactions": [
+    {
+     "channel": "web",
+     "at": "2026-08-31T10:38:00",
+     "text": "मी माझी अपॉइंटमेंट पुढच्या आठवड्यात घेऊ शकतो का?"
+    }
+   ]
+  },
+  {
+   "id": "CASE-40039",
+   "customerId": "CUST-1002",
+   "category": "appointment_rescheduling",
+   "team": "Front Desk",
+   "createdAt": "2026-09-11T12:16:00",
+   "week": 6,
+   "channel": "email",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 1,
+   "repeatContact": false,
+   "resolutionDays": 1,
+   "quote": "Can I move my appointment to next week?",
+   "interactions": [
+    {
+     "channel": "email",
+     "at": "2026-09-11T12:16:00",
+     "text": "Can I move my appointment to next week?"
+    }
+   ]
+  },
+  {
+   "id": "CASE-40040",
+   "customerId": "CUST-1011",
+   "category": "appointment_rescheduling",
+   "team": "Front Desk",
+   "createdAt": "2026-09-19T14:39:00",
+   "week": 7,
+   "channel": "web",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 1,
+   "repeatContact": false,
+   "resolutionDays": 2,
+   "quote": "मी माझी अपॉइंटमेंट पुढच्या आठवड्यात घेऊ शकतो का?",
+   "interactions": [
+    {
+     "channel": "web",
+     "at": "2026-09-19T14:39:00",
+     "text": "मी माझी अपॉइंटमेंट पुढच्या आठवड्यात घेऊ शकतो का?"
+    }
+   ]
+  },
+  {
+   "id": "CASE-40041",
+   "customerId": "CUST-1005",
+   "category": "appointment_rescheduling",
+   "team": "Front Desk",
+   "createdAt": "2026-09-26T13:35:00",
+   "week": 8,
+   "channel": "web",
+   "status": "ESCALATED",
+   "escalated": false,
+   "contactCount": 2,
+   "repeatContact": true,
+   "resolutionDays": null,
+   "quote": "Can I move my appointment to next week?",
+   "interactions": [
+    {
+     "channel": "web",
+     "at": "2026-09-26T13:35:00",
+     "text": "Can I move my appointment to next week?"
+    },
+    {
+     "channel": "whatsapp",
+     "at": "2026-09-27T18:35:00",
+     "text": "Can I move my appointment to next week?"
+    }
+   ]
+  },
+  {
+   "id": "CASE-40042",
+   "customerId": "CUST-1010",
+   "category": "report_delay",
+   "team": "Diagnostics",
+   "createdAt": "2026-08-14T09:19:00",
+   "week": 2,
+   "channel": "email",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 2,
+   "repeatContact": true,
+   "resolutionDays": 4,
+   "quote": "मेरी जाँच रिपोर्ट अभी तक तैयार नहीं है।",
+   "interactions": [
+    {
+     "channel": "email",
+     "at": "2026-08-14T09:19:00",
+     "text": "मेरी जाँच रिपोर्ट अभी तक तैयार नहीं है।"
+    },
+    {
+     "channel": "email",
+     "at": "2026-08-15T16:19:00",
+     "text": "My test report is not ready yet."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40043",
+   "customerId": "CUST-1003",
+   "category": "report_delay",
+   "team": "Diagnostics",
+   "createdAt": "2026-08-20T11:42:00",
+   "week": 3,
+   "channel": "whatsapp",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 2,
+   "repeatContact": true,
+   "resolutionDays": 2,
+   "quote": "माझा चाचणी अहवाल अजून तयार नाही.",
+   "interactions": [
+    {
+     "channel": "whatsapp",
+     "at": "2026-08-20T11:42:00",
+     "text": "माझा चाचणी अहवाल अजून तयार नाही."
+    },
+    {
+     "channel": "email",
+     "at": "2026-08-21T04:42:00",
+     "text": "My test report is not ready yet."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40044",
+   "customerId": "CUST-1008",
+   "category": "report_delay",
+   "team": "Diagnostics",
+   "createdAt": "2026-09-01T09:02:00",
+   "week": 5,
+   "channel": "email",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 1,
+   "repeatContact": false,
+   "resolutionDays": 5,
+   "quote": "My test report is not ready yet.",
+   "interactions": [
+    {
+     "channel": "email",
+     "at": "2026-09-01T09:02:00",
+     "text": "My test report is not ready yet."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40045",
+   "customerId": "CUST-1013",
+   "category": "report_delay",
+   "team": "Diagnostics",
+   "createdAt": "2026-09-08T15:31:00",
+   "week": 6,
+   "channel": "whatsapp",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 1,
+   "repeatContact": false,
+   "resolutionDays": 2,
+   "quote": "My test report is not ready yet.",
+   "interactions": [
+    {
+     "channel": "whatsapp",
+     "at": "2026-09-08T15:31:00",
+     "text": "My test report is not ready yet."
+    }
+   ]
+  },
+  {
+   "id": "CASE-40046",
+   "customerId": "CUST-1002",
+   "category": "report_delay",
+   "team": "Diagnostics",
+   "createdAt": "2026-09-22T17:29:00",
+   "week": 8,
+   "channel": "whatsapp",
+   "status": "RESOLVED",
+   "escalated": false,
+   "contactCount": 1,
+   "repeatContact": false,
+   "resolutionDays": 5,
+   "quote": "My test report is not ready yet.",
+   "interactions": [
+    {
+     "channel": "whatsapp",
+     "at": "2026-09-22T17:29:00",
+     "text": "My test report is not ready yet."
+    }
+   ]
+  }
+ ],
+ "oracle": {
+  "billing_clarification": {
+   "volume": 21,
+   "first4weeks": 6,
+   "last4weeks": 15,
+   "trendPct": 150,
+   "repeatContactRate": 0.71,
+   "escalationRate": 0.33,
+   "avgResolutionDays": 6.1
+  },
+  "claim_status": {
+   "volume": 10,
+   "first4weeks": 5,
+   "last4weeks": 5,
+   "trendPct": 0,
+   "repeatContactRate": 0.5,
+   "escalationRate": 0.3,
+   "avgResolutionDays": 4.0
+  },
+  "appointment_rescheduling": {
+   "volume": 10,
+   "first4weeks": 5,
+   "last4weeks": 5,
+   "trendPct": 0,
+   "repeatContactRate": 0.1,
+   "escalationRate": 0.1,
+   "avgResolutionDays": 1.4
+  },
+  "report_delay": {
+   "volume": 5,
+   "first4weeks": 2,
+   "last4weeks": 3,
+   "trendPct": 50,
+   "repeatContactRate": 0.4,
+   "escalationRate": 0.0,
+   "avgResolutionDays": 3.6
+  }
+ },
+ "sampleSize": 46
+}

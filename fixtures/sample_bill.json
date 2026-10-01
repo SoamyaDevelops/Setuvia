@@ -1,0 +1,110 @@
+{
+  "_note": "SYNTHETIC DATA - fictional hospital, patient and amounts. Ground truth for tests and mock AI.",
+  "billNumber": "83921",
+  "billDate": "2026-09-14",
+  "hospital": "Demo Hospital (fictional)",
+  "patient": "Demo Customer",
+  "admissionDate": "2026-09-12",
+  "dischargeDate": "2026-09-14",
+  "stayDays": 2,
+  "insurance": {
+    "insurer": "Demo Insurer (fictional)",
+    "policyRef": "POL-DEMO-1042"
+  },
+  "lineItems": [
+    {
+      "line": 1,
+      "description": "Room rent - semi-private",
+      "qty": 3,
+      "rate": 3200,
+      "amount": 9600,
+      "date": "2026-09-12",
+      "tax": 0
+    },
+    {
+      "line": 2,
+      "description": "Nursing charges",
+      "qty": 2,
+      "rate": 800,
+      "amount": 1600,
+      "date": "2026-09-13",
+      "tax": 0
+    },
+    {
+      "line": 3,
+      "description": "Doctor consultation",
+      "qty": 2,
+      "rate": 1500,
+      "amount": 3000,
+      "date": "2026-09-13",
+      "tax": 0
+    },
+    {
+      "line": 4,
+      "description": "MRI Lumbar Spine",
+      "qty": 1,
+      "rate": 3200,
+      "amount": 3200,
+      "date": "2026-09-13 11:20",
+      "tax": 0
+    },
+    {
+      "line": 5,
+      "description": "MRI Lumbar Spine",
+      "qty": 1,
+      "rate": 3200,
+      "amount": 3200,
+      "date": "2026-09-13 11:20",
+      "tax": 0
+    },
+    {
+      "line": 6,
+      "description": "Pathology - CBC and LFT panel",
+      "qty": 1,
+      "rate": 2400,
+      "amount": 2400,
+      "date": "2026-09-13",
+      "tax": 0
+    },
+    {
+      "line": 7,
+      "description": "Admission kit",
+      "qty": 1,
+      "rate": 250,
+      "amount": 250,
+      "date": "2026-09-12",
+      "tax": 0
+    },
+    {
+      "line": 8,
+      "description": "Physiotherapy session",
+      "qty": 2,
+      "rate": 1500,
+      "amount": 3000,
+      "date": "2026-09-14",
+      "tax": 150
+    },
+    {
+      "line": 9,
+      "description": "Pharmacy - medicines",
+      "qty": 1,
+      "rate": 12600,
+      "amount": 12600,
+      "date": "2026-09-14",
+      "tax": 0
+    },
+    {
+      "line": 10,
+      "description": "Medical consumables",
+      "qty": 1,
+      "rate": 3000,
+      "amount": 3000,
+      "date": "2026-09-14",
+      "tax": 0
+    }
+  ],
+  "subtotal": 41850,
+  "taxTotal": 150,
+  "printedTotal": 42000,
+  "currency": "INR"
+}

@@ -27,7 +27,40 @@ export default function Login() {
     if (queryRole) {
       setRole(queryRole);
     }
-  }, [queryRole]);
+
+    // Listen for Supabase OAuth return callback in URL hash
+    const hash = window.location.hash;
+    if (hash && hash.includes('access_token=')) {
+      const params = new URLSearchParams(hash.replace(/^#/, ''));
+      const accessToken = params.get('access_token');
+      if (accessToken) {
+        setGoogleLoading(true);
+        fetch('https://vrqjfbvbxqszylglrkeu.supabase.co/auth/v1/user', {
+          headers: { Authorization: `Bearer ${accessToken}` }
+        })
+          .then((res) => res.json())
+          .then((userData) => {
+            const meta = userData.user_metadata || {};
+            supabase.auth.signInWithOAuth({
+              provider: 'google',
+              userProfile: {
+                name: meta.full_name || meta.name || userData.email?.split('@')[0] || 'Google User',
+                email: userData.email,
+                avatar: meta.avatar_url || meta.picture || `https://ui-avatars.com/api/?name=${encodeURIComponent(meta.full_name || 'User')}&background=121416&color=fff`,
+              },
+              role: role
+            }).then(() => {
+              window.history.replaceState(null, '', window.location.pathname);
+              navigate(getTargetDestination());
+            });
+          })
+          .catch((err) => {
+            console.error('Supabase user fetch error:', err);
+            setGoogleLoading(false);
+          });
+      }
+    }
+  }, [queryRole, role]);
 
   const handleRoleQuickSelect = (selectedRole) => {
     setRole(selectedRole);

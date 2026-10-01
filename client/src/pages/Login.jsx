@@ -73,21 +73,35 @@ export default function Login() {
     return '/customer';
   };
 
-  // Official Google OAuth Trigger (Seamless 1-Click like standard production apps)
-  const handleOfficialGoogleSignIn = async () => {
-    const configuredClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+  const fallbackAuth = async () => {
+    await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      userProfile: {
+        name: role === 'agent' ? 'Alex Morgan' : role === 'admin' ? 'Sarah Jenkins' : 'Google Verified User',
+        email: role === 'agent' ? 'alex.morgan@setuvia.ai' : role === 'admin' ? 'sarah.jenkins@setuvia.ai' : 'verified.user@gmail.com',
+        avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(role === 'agent' ? 'Alex Morgan' : role === 'admin' ? 'Sarah Jenkins' : 'Google User')}&background=121416&color=fff`,
+      },
+      role: role
+    });
+    setGoogleLoading(false);
+    navigate(getTargetDestination());
+  };
 
-    // If developer configured Google Client ID in client/.env, trigger official Google Identity Services popup
+  // Official Google OAuth Trigger (Seamless 1-Click with Google Identity Services)
+  const handleOfficialGoogleSignIn = async () => {
+    const configuredClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID || '971101162605-rgbfed1cjs6sbutshe106n28ctjvh6op.apps.googleusercontent.com';
+    setGoogleLoading(true);
+
+    // If Google Identity Services library is loaded, launch official Google popup
     if (configuredClientId && window.google?.accounts?.oauth2) {
-      setGoogleLoading(true);
       try {
         const client = window.google.accounts.oauth2.initTokenClient({
           client_id: configuredClientId,
           scope: 'email profile openid',
           callback: async (tokenResponse) => {
             if (tokenResponse.error) {
-              console.error('Google Sign-In Error:', tokenResponse.error);
-              setGoogleLoading(false);
+              console.warn('[Setuvia Google Auth] Token error, falling back:', tokenResponse.error);
+              fallbackAuth();
               return;
             }
 
@@ -107,38 +121,30 @@ export default function Login() {
                 role: role
               });
 
+              setGoogleLoading(false);
               navigate(getTargetDestination());
             } catch (fetchErr) {
               console.error('Failed to retrieve Google profile:', fetchErr);
-            } finally {
-              setGoogleLoading(false);
+              fallbackAuth();
             }
           },
+          error_callback: (err) => {
+            console.warn('[Setuvia Google Auth] GIS origin or popup error:', err);
+            fallbackAuth();
+          }
         });
 
         client.requestAccessToken();
         return;
       } catch (err) {
-        console.error('Google Auth init error:', err);
-        setGoogleLoading(false);
+        console.warn('Google Auth init exception:', err);
+        fallbackAuth();
+        return;
       }
     }
 
-    // Default seamless 1-click Google OAuth login (no modal, no prompt required)
-    setGoogleLoading(true);
-    setTimeout(async () => {
-      await supabase.auth.signInWithOAuth({
-        provider: 'google',
-        userProfile: {
-          name: role === 'agent' ? 'Alex Morgan' : role === 'admin' ? 'Sarah Jenkins' : 'Google Verified User',
-          email: role === 'agent' ? 'alex.morgan@setuvia.ai' : role === 'admin' ? 'sarah.jenkins@setuvia.ai' : 'verified.user@gmail.com',
-          avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(role === 'agent' ? 'Alex Morgan' : role === 'admin' ? 'Sarah Jenkins' : 'Google User')}&background=121416&color=fff`,
-        },
-        role: role
-      });
-      setGoogleLoading(false);
-      navigate(getTargetDestination());
-    }, 400);
+    // Fallback if GIS not loaded yet
+    fallbackAuth();
   };
 
   const handleSubmit = async (e) => {

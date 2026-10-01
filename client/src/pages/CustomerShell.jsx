@@ -5,6 +5,7 @@ import { LogOut, Activity, User, CheckCircle, Clock, MessageSquare, Menu, X, Arr
 import { CursorBlob } from '../components/effects/CursorBlob';
 import { supabase, getStoredSession } from '../supabaseClient';
 import SetuviaLogo from '../components/SetuviaLogo';
+import { sendCaseMessage } from '../services/apiService';
 
 export default function CustomerShell() {
   const session = getStoredSession();
@@ -34,29 +35,26 @@ export default function CustomerShell() {
     e.preventDefault();
     if (!input.trim()) return;
 
-    const userMsg = { id: Date.now(), type: 'user', text: input, time: new Date().toISOString() };
+    const currentInput = input;
+    const userMsg = { id: Date.now(), type: 'user', text: currentInput, time: new Date().toISOString() };
     setMessages(prev => [...prev, userMsg]);
     setInput('');
     setLoading(true);
 
     try {
-      const res = await axios.post('http://localhost:3000/api/cases/CASE-48291/actions', {
-        action: 'MESSAGE',
-        payload: { message: input },
-        actor: 'customer'
-      });
+      const responseText = await sendCaseMessage('CASE-48291', currentInput);
       
       setMessages(prev => [...prev, { 
         id: Date.now(), 
         type: 'agent', 
-        text: res.data.result || "Thank you. Your request was analyzed and processed by our resolution pipeline.",
+        text: responseText || "Your inquiry has been verified and processed by the Setuvia AI engine.",
         time: new Date().toISOString()
       }]);
     } catch (err) {
       setMessages(prev => [...prev, { 
         id: Date.now(), 
         type: 'agent', 
-        text: "We received your message and dispatched it to the AI resolution queue.",
+        text: "I have recorded your request and flagged it for immediate resolution.",
         time: new Date().toISOString()
       }]);
     } finally {

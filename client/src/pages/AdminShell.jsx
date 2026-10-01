@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { fetchInsights, fetchAudit, simulateCaseAction } from '../services/apiService';
 import { supabase, getStoredSession } from '../supabaseClient';
 import SetuviaLogo from '../components/SetuviaLogo';
 
@@ -20,11 +20,11 @@ export default function AdminShell() {
 
   useEffect(() => {
     Promise.all([
-      axios.get('http://localhost:3000/api/insights'),
-      axios.get('http://localhost:3000/api/audit')
-    ]).then(([insightsRes, auditRes]) => {
-      setInsights(insightsRes.data);
-      setAuditLogs(auditRes.data);
+      fetchInsights(),
+      fetchAudit()
+    ]).then(([insightsData, auditData]) => {
+      setInsights(insightsData);
+      setAuditLogs(auditData);
       setLoading(false);
     }).catch(err => {
       console.error(err);
@@ -33,16 +33,8 @@ export default function AdminShell() {
   }, []);
 
   const handleSimulateRefund = async () => {
-    try {
-      const res = await axios.post('http://localhost:3000/api/cases/CASE-48291/actions', {
-        action: 'ISSUE_REFUND',
-        payload: { amount: 6800 },
-        actor: 'agent' // Agent simulating
-      });
-      setTestResult({ success: true, msg: 'Refund approved' });
-    } catch (error) {
-      setTestResult({ success: false, msg: error.response?.data?.error || 'Failed' });
-    }
+    const result = await simulateCaseAction('CASE-48291', 'ISSUE_REFUND', { amount: 6800 }, 'agent');
+    setTestResult(result);
   };
 
   return (

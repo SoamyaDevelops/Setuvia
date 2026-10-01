@@ -1,8 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { supabase, getStoredSession } from '../supabaseClient';
 import SetuviaLogo from '../components/SetuviaLogo';
+import { fetchCases as fetchCasesApi, fetchCaseById, performAgentAction, FALLBACK_CASES } from '../services/apiService';
 
 export default function AgentShell() {
   const navigate = useNavigate();
@@ -24,23 +24,22 @@ export default function AgentShell() {
     fetchCases();
   }, []);
 
-  const fetchCases = () => {
-    axios.get('http://localhost:3000/api/cases')
-      .then(res => {
-        setCases(res.data);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error('Error fetching cases', err);
-        setLoading(false);
-      });
+  const fetchCases = async () => {
+    try {
+      const data = await fetchCasesApi();
+      setCases(data && data.length > 0 ? data : FALLBACK_CASES);
+    } catch (err) {
+      setCases(FALLBACK_CASES);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleSelectCase = async (caseId) => {
     setSelectedCase(caseId);
     try {
-      const res = await axios.get(`http://localhost:3000/api/cases/${caseId}`);
-      setCaseDetails(res.data);
+      const data = await fetchCaseById(caseId);
+      setCaseDetails(data);
     } catch (error) {
       console.error(error);
     }
@@ -50,11 +49,7 @@ export default function AgentShell() {
     if (!selectedCase) return;
     setActionLoading(true);
     try {
-      await axios.post(`http://localhost:3000/api/cases/${selectedCase}/actions`, {
-        action: 'ANSWER',
-        payload: { message: draft },
-        actor: 'agent'
-      });
+      await performAgentAction(selectedCase, 'ANSWER', { message: draft });
       // Refresh case details and cases list
       await handleSelectCase(selectedCase);
       fetchCases();

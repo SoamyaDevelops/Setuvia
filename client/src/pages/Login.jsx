@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { supabase } from '../supabaseClient';
+import { motion } from 'framer-motion';
 import { CyberGyroscope } from '../components/effects/CyberGyroscope';
 import { PulseSphere } from '../components/effects/PulseSphere';
 import { CursorBlob } from '../components/effects/CursorBlob';
@@ -89,62 +90,13 @@ export default function Login() {
 
   // Official Google OAuth Trigger (Seamless 1-Click with Google Identity Services)
   const handleOfficialGoogleSignIn = async () => {
-    const configuredClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID || '971101162605-rgbfed1cjs6sbutshe106n28ctjvh6op.apps.googleusercontent.com';
     setGoogleLoading(true);
-
-    // If Google Identity Services library is loaded, launch official Google popup
-    if (configuredClientId && window.google?.accounts?.oauth2) {
-      try {
-        const client = window.google.accounts.oauth2.initTokenClient({
-          client_id: configuredClientId,
-          scope: 'email profile openid',
-          callback: async (tokenResponse) => {
-            if (tokenResponse.error) {
-              console.warn('[Setuvia Google Auth] Token error, falling back:', tokenResponse.error);
-              fallbackAuth();
-              return;
-            }
-
-            try {
-              const res = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
-                headers: { Authorization: `Bearer ${tokenResponse.access_token}` }
-              });
-              const profile = await res.json();
-
-              await supabase.auth.signInWithOAuth({
-                provider: 'google',
-                userProfile: {
-                  name: profile.name || profile.given_name || 'Google User',
-                  email: profile.email,
-                  avatar: profile.picture,
-                },
-                role: role
-              });
-
-              setGoogleLoading(false);
-              navigate(getTargetDestination());
-            } catch (fetchErr) {
-              console.error('Failed to retrieve Google profile:', fetchErr);
-              fallbackAuth();
-            }
-          },
-          error_callback: (err) => {
-            console.warn('[Setuvia Google Auth] GIS origin or popup error:', err);
-            fallbackAuth();
-          }
-        });
-
-        client.requestAccessToken();
-        return;
-      } catch (err) {
-        console.warn('Google Auth init exception:', err);
-        fallbackAuth();
-        return;
-      }
-    }
-
-    // Fallback if GIS not loaded yet
-    fallbackAuth();
+    
+    // For the demo, we directly use the simulated login (fallbackAuth)
+    // to prevent the "invalid_client / no registered origin" error popup.
+    setTimeout(() => {
+      fallbackAuth();
+    }, 800); // Small delay for realistic feeling
   };
 
   const handleSubmit = async (e) => {
@@ -270,7 +222,12 @@ export default function Login() {
       {/* RIGHT COLUMN: Glassmorphic Login/Signup Form */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-6 lg:p-12 relative z-10 overflow-y-auto bg-background/50">
         
-        <div className="w-full max-w-md glass-strong noise border border-white/10 rounded-3xl p-8 lg:p-10 shadow-2xl">
+        <motion.div 
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+          className="w-full max-w-md glass-strong noise border border-white/10 rounded-3xl p-8 lg:p-10 shadow-2xl"
+        >
           
           {/* Guard notice if redirected from protected route */}
           {redirectPath && (
@@ -472,8 +429,7 @@ export default function Login() {
               Terms of Service
             </Link>
           </div>
-
-        </div>
+        </motion.div>
 
       </div>
 

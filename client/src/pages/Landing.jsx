@@ -20,17 +20,9 @@ import { PulseSphere } from '../components/effects/PulseSphere';
 import { Nav } from '../components/layout/Nav';
 import { CursorBlob } from '../components/effects/CursorBlob';
 import SetuviaLogo from '../components/SetuviaLogo';
-import LegalModal from '../components/LegalModal';
 
 export default function Landing() {
   const [activeTab, setActiveTab] = useState('triage');
-  const [legalOpen, setLegalOpen] = useState(false);
-  const [legalTab, setLegalTab] = useState('privacy');
-
-  const openLegalModal = (tab) => {
-    setLegalTab(tab);
-    setLegalOpen(true);
-  };
 
   const stats = [
     { label: 'Autonomous Resolution', value: '99.4%', sub: 'Zero-touch resolution' },
@@ -354,31 +346,22 @@ export default function Landing() {
           </div>
 
           <div className="flex items-center gap-4">
-            <button
-              type="button"
-              onClick={() => openLegalModal('privacy')}
-              className="hover:text-foreground transition-colors cursor-pointer"
+            <Link
+              to="/privacy"
+              className="hover:text-foreground transition-colors"
             >
               Privacy Policy
-            </button>
+            </Link>
             <span className="opacity-40">•</span>
-            <button
-              type="button"
-              onClick={() => openLegalModal('terms')}
-              className="hover:text-foreground transition-colors cursor-pointer"
+            <Link
+              to="/terms"
+              className="hover:text-foreground transition-colors"
             >
               Terms of Service
-            </button>
+            </Link>
           </div>
         </div>
       </footer>
-
-      {/* Interactive Legal Modal */}
-      <LegalModal
-        isOpen={legalOpen}
-        onClose={() => setLegalOpen(false)}
-        initialTab={legalTab}
-      />
 
     </div>
   );
